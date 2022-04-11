@@ -1,8 +1,18 @@
 import React from 'react';
+import styled from 'styled-components';
 
-function Box() {
+const StyledBox = styled('div')({
+  // TODO: add theme colors & spacing
+  backgroundColor: '#fff',
+  border: '1px solid',
+  padding: '32px',
+});
+
+function Box({children}) {
   return (
-    <>Box</>
+    <StyledBox>
+      {children}
+    </StyledBox>
   );
 }
 
