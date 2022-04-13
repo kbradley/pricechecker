@@ -1,3 +1,12 @@
+/* 
+  TODO:
+  (Discuss with the team)
+  * "primary" is the same for light and dark themes. Separate out?
+  * Figure out the best way to define border colors
+  * Figure out better way to define "Interactive" colors such as for buttons & links
+  * Find out how to handle Interactive states in dark mode (colors to use)
+*/
+
 // Descriptive Color Names:
 const colorNames = {
   redPink: {
@@ -20,20 +29,29 @@ const colorNames = {
 const baseSize = '4';
 
 // Semantic Color Names:
-// TODO: Figure out how to handle border colors with designer
 export const colors = {
   light: {
     primary: colorNames.redPink.base,
+    primaryHover: colorNames.redPink.darker,
+    primaryActive: colorNames.redPink.darkest,
+    onPrimary: colorNames.white.base,
     body: colorNames.blackGreen.base,
     headers: colorNames.blackGreen.lighter,
     background: colorNames.white.base,
+    backgroundHover: colorNames.white.darker,
+    backgroundActive: colorNames.white.darkest,
     boxBorder: colorNames.white.darkest,
   },
   dark: {
     primary: colorNames.redPink.base,
+    primaryHover: colorNames.redPink.darker,
+    primaryActive: colorNames.redPink.darkest,
+    onPrimary: colorNames.white.base,
     body: colorNames.white.base,
     headers: colorNames.white.base,
     background: colorNames.blackGreen.base,
+    backgroundHover: colorNames.blackGreen.lighter,
+    backgroundActive: colorNames.blackGreen.lighter, // currently the same as hover
     boxBorder: colorNames.blackGreen.base,
   },
 };
