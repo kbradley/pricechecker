@@ -10,7 +10,12 @@ const StyledButton = styled('a')({
   textDecoration: 'none',
   lineHeight: '1',
   display: 'inline-block',
-  padding: ((props) => {props.theme.spacing.size2}) ((props) => {props.theme.spacing.size3}),
+  paddingTop: (props) => props.theme.spacing.size2,
+  paddingBottom: (props) => props.theme.spacing.size2,
+  paddingLeft: (props) => props.theme.spacing.size3,
+  paddingRight: (props) => props.theme.spacing.size3,
+  // TODO: Figure out how to get multiple variables in one style definition working
+  // padding: ((props) => {props.theme.spacing.size2}) ((props) => {props.theme.spacing.size3}),
 
   '&.primary': {
     backgroundColor: (props) => props.theme.colors.primary,

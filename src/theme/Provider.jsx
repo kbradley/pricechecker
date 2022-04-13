@@ -4,7 +4,10 @@ import {colors, text, spacing} from './theme';
 import './fonts.css';
 
 const GlobalStyle = createGlobalStyle`
-  * {box-sizing: border-box;}
+  * {
+    box-sizing: border-box;
+    margin: 0;
+  }
 
   body {
     font-family: "Roboto", sans-serif;
