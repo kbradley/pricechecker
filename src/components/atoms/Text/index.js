@@ -1,0 +1,1 @@
+export { Headline, Body, Info } from './Text';

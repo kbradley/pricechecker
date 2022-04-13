@@ -1,14 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Info } from '../../atoms/Text';
 
 // This component is only for links styled like buttons currently, not actual html buttons
 const StyledButton = styled('a')({
   border: '2px solid',
   borderColor: (props) => props.theme.colors.primary,
+  fontWeight: (props) => props.theme.text.weight.bold,
   textDecoration: 'none',
   lineHeight: '1',
   display: 'inline-block',
-  padding: '8px 16px', // TODO: Use Rem?
+  padding: ((props) => {props.theme.spacing.size2}) ((props) => {props.theme.spacing.size3}),
 
   '&.primary': {
     backgroundColor: (props) => props.theme.colors.primary,
@@ -51,7 +53,9 @@ function Button({
       className={variant} 
       href={href}
     >
-      {children}
+      <Info>
+        {children}
+      </Info>
     </StyledButton>
   );
 }

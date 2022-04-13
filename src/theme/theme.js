@@ -59,19 +59,17 @@ export const colors = {
 export const text = {
   headline: {
     fontSize: '2rem',
-    regular: '400', // fontWeight
-    bold: '700', // fontWeight
   },
   body: {
     fontSize: '1.25rem',
-    regular: '400', // fontWeight
-    bold: '700', // fontWeight
   },
   info: {
     fontSize: '0.875rem',
-    regular: '400', // fontWeight
-    bold: '700', // fontWeight
   },
+  weight: {
+    'regular': '400',
+    'bold': '700',
+  }
 };
 
 // TODO: Consider using rem for sizing vs. px
