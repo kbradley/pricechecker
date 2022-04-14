@@ -6,6 +6,7 @@ import { Info } from '../../atoms/Text';
 const StyledButton = styled('a')({
   border: '2px solid',
   borderColor: (props) => props.theme.colors.primary,
+  cursor: 'pointer',
   fontWeight: (props) => props.theme.text.weight.bold,
   textDecoration: 'none',
   lineHeight: '1',
