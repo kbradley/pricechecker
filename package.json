@@ -16,6 +16,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.17.9",
+    "@babel/preset-env": "^7.16.11",
     "@storybook/addon-a11y": "^6.4.21",
     "@storybook/addon-actions": "^6.5.0-alpha.60",
     "@storybook/addon-essentials": "^6.5.0-alpha.60",
@@ -29,13 +30,11 @@
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.6",
     "enzyme-to-json": "^3.6.2",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^27.5.1",
+    "jest-transform-stub": "^2.0.0",
     "storybook-addon-designs": "^6.2.1",
     "styled-components": "^5.3.5",
     "vite": "^2.8.0"
-  },
-  "jest": {
-    "snapshotSerializers": ["enzyme-to-json/serializer"],
-    "setupFiles": ["./setupTests.js"]
   }
 }
