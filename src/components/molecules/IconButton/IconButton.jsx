@@ -24,7 +24,7 @@ function IconButton({
 }) {
   const [mode, setMode] = React.useState('light');
   const handleModeChange = (e) => setMode(
-    e.target.checked ? Mode.Dark : Mode.Light
+    e.target.checked ? mode.dark : mode.light
   );
 
   return (
