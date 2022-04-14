@@ -8,15 +8,19 @@ const StyledLabel = styled('label')({
   position: 'relative',
 
   '> input': {
+    cursor: 'pointer',
     opacity: '.0',
     position: 'absolute',
     inset: '0',
+    height: '100%',
+    width: '100%',
   },
 });
 
 function IconButton({
   checked,
   onChange,
+  className,
 }) {
   const [mode, setMode] = React.useState('light');
   const handleModeChange = (e) => setMode(
@@ -24,7 +28,7 @@ function IconButton({
   );
 
   return (
-    <StyledLabel ariaLabel="Toggle theme">
+    <StyledLabel ariaLabel="Toggle theme" className={className}>
       {
         checked 
         ? <span ariaLabel="Current mode = light"><SunIcon /></span> 

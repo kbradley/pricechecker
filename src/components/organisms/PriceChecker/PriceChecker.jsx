@@ -7,9 +7,33 @@ import Button from '../../molecules/Button';
 import IconButton from '../../molecules/IconButton';
 import { Headline, Body, Info } from '../../atoms/Text';
 
-const StyledBox = styled(Box)({
-  maxWidth: '300px',
-  outline: '5px solid lime',
+// TODO: 
+// * Implement custom styling options for Box instead
+// * Implement better spacing system
+const Wrapper = styled('div')({
+  maxWidth: '264px',
+
+  '.toggle-button': {
+    position: 'absolute',
+    top: (props) => props.theme.spacing.size2,
+    right: (props) => props.theme.spacing.size2,
+  },
+
+  '.headline': {
+    marginTop: (props) => props.theme.spacing.size2,
+  },
+
+  '.button-wrapper': {
+    marginTop: (props) => props.theme.spacing.size3,
+    display: 'flex',
+    gap: (props) => props.theme.spacing.size2,
+
+    '> *': {
+      flexBasis: '0',
+      flexGrow: '1',
+      flexShrink: '1',
+    }
+  },
 });
 
 const Mode = {
@@ -25,36 +49,39 @@ function PriceChecker() {
 
   return (
     <Provider mode={mode}>
-      <StyledBox>
-        <IconButton 
-          checked={mode === Mode.Dark} 
-          onChange={handleModeChange}
-        />
-        
-        <p>
-          <Body>
-            Ethereum Price 
+      <Wrapper>
+        <Box>
+          <IconButton 
+            className="toggle-button"
+            checked={mode === Mode.Dark} 
+            onChange={handleModeChange}
+          />
+
+          <p>
+            <Body>
+              Ethereum Price 
+              {' '}
+              <small>
+                <Info>(ETH)</Info>
+              </small>
+            </Body>
+          </p>
+          <p className="headline">
+            <Headline>
+              $3,443.05
+            </Headline>
+          </p>
+          <p className="button-wrapper">
+            <Button>
+              See ETH
+            </Button>
             {' '}
-            <small>
-              <Info>(ETH)</Info>
-            </small>
-          </Body>
-        </p>
-        <p>
-          <Headline>
-            $3,443.05
-          </Headline>
-        </p>
-        <p>
-          <Button>
-            See ETH
-          </Button>
-          {' '}
-          <Button variant="secondary">
-            See more
-          </Button>
-        </p>
-      </StyledBox>
+            <Button variant="secondary">
+              See more
+            </Button>
+          </p>
+        </Box>
+      </Wrapper>
     </Provider>
   );
 }

@@ -11,6 +11,7 @@ export default {
     (Story) => (<Provider><Story /></Provider>)
   ],
   parameters: {
+    controls: {hideNoControlsWarning: true},
     design: [
       {
         type: 'figma',
