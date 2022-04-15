@@ -1,45 +1,62 @@
 import React from 'react';
 import styled, { ThemeConsumer } from 'styled-components';
+import Provider from '../../../theme/Provider.jsx';
 
 import { MoonIcon, SunIcon } from '../../atoms/Icons';
 
-const StyledLabel = styled('label')({
-  display: 'inline-block',
+const StyledDiv = styled('div')({
+  maxWidth: '264px',
   position: 'relative',
 
-  '> input': {
-    cursor: 'pointer',
-    opacity: '.0',
+  label: {
+    backgroundColor: (props) => props.theme.colors.background,
+    display: 'inline-block',
     position: 'absolute',
-    inset: '0',
-    height: '100%',
-    width: '100%',
+    top: (props) => props.theme.spacing.size2,
+    right: (props) => props.theme.spacing.size2,
+    zIndex: '2',
+
+    '> input[type="checkbox"]': {
+      cursor: 'pointer',
+      opacity: '.0',
+      position: 'absolute',
+      inset: '0',
+      height: '100%',
+      width: '100%',
+    },
   },
 });
 
 function IconButton({
-  checked,
-  onChange,
-  className,
+  children,
 }) {
+  const MODE = {
+    LIGHT: 'light',
+    DARK: 'dark',
+  };
   const [mode, setMode] = React.useState('light');
   const handleModeChange = (e) => setMode(
-    e.target.checked ? mode.dark : mode.light
+    e.target.checked ? MODE.DARK : MODE.LIGHT
   );
 
   return (
-    <StyledLabel ariaLabel="Toggle theme" className={className}>
-      {
-        checked 
-        ? <span ariaLabel="Current mode = light"><SunIcon /></span> 
-        : <span ariaLabel="Current mode = dark"><MoonIcon  /></span>
-      }
-      <input 
-        type="checkbox" 
-        checked={checked}
-        onChange={onChange}
-      />
-    </StyledLabel>
+    <Provider mode={mode}>
+      <StyledDiv className="wrapper">
+        <label ariaLabel="Toggle theme">
+          {
+            mode === MODE.DARK
+            ? <span ariaLabel="Current mode = dark"><SunIcon /></span> 
+            : <span ariaLabel="Current mode = light"><MoonIcon /></span>
+          }
+          <input 
+            type="checkbox" 
+            checked={mode === MODE.DARK} 
+            onChange={handleModeChange}
+          />
+        </label>
+        {children}
+      </StyledDiv>
+    </Provider>
   );
 }
 

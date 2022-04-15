@@ -13,6 +13,7 @@ const StyledButton = styled('a')({
   lineHeight: '1.4',
   display: 'inline-block',
   padding: (props) => props.theme.spacing.size2,
+  minWidth: '96px',
 
   '&.primary': {
     backgroundColor: (props) => props.theme.colors.primary,

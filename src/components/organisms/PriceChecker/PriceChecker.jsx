@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import Provider from '../../../theme/Provider.jsx';
 
 import Box from '../../molecules/Box';
 import Button from '../../molecules/Button';
@@ -11,14 +10,6 @@ import { Headline, Body, Info } from '../../atoms/Text';
 // * Implement custom styling options for Box instead
 // * Implement better spacing system
 const Wrapper = styled('div')({
-  maxWidth: '264px',
-
-  '.toggle-button': {
-    position: 'absolute',
-    top: (props) => props.theme.spacing.size2,
-    right: (props) => props.theme.spacing.size2,
-  },
-
   '.headline': {
     marginTop: (props) => props.theme.spacing.size2,
   },
@@ -36,27 +27,11 @@ const Wrapper = styled('div')({
   },
 });
 
-const Mode = {
-  Light: 'light',
-  Dark: 'dark',
-};
-
 function PriceChecker() {
-  const [mode, setMode] = React.useState('light');
-  const handleModeChange = (e) => setMode(
-    e.target.checked ? Mode.Dark : Mode.Light
-  );
-
   return (
-    <Provider mode={mode}>
+    <IconButton>
       <Wrapper>
         <Box>
-          <IconButton 
-            className="toggle-button"
-            checked={mode === Mode.Dark} 
-            onChange={handleModeChange}
-          />
-
           <p>
             <Body>
               Ethereum Price 
@@ -82,7 +57,7 @@ function PriceChecker() {
           </p>
         </Box>
       </Wrapper>
-    </Provider>
+    </IconButton>
   );
 }
 
